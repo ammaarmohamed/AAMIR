@@ -43,6 +43,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ config }) => {
                 <img
                   src={config.logoUrl}
                   alt={config.organization}
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import QRCode from 'qrcode';
-import { X, Copy, Download, Check, Sparkles } from 'lucide-react';
+import { X, Copy, Download, Check } from 'lucide-react';
 import { CardConfig } from '../types';
 
 interface QrModalProps {
@@ -18,22 +17,27 @@ export const QrModal: React.FC<QrModalProps> = ({ isOpen, onClose, config, onToa
   const currentUrl = typeof window !== 'undefined' ? window.location.href : config.contacts.website;
 
   useEffect(() => {
+    let isMounted = true;
     if (isOpen) {
-      QRCode.toString(currentUrl, {
-        type: 'svg',
-        margin: 1.5,
-        color: {
-          dark: '#000000',
-          light: '#ffffff'
-        }
-      })
-        .then((svgString) => {
-          setQrSvg(svgString);
-        })
-        .catch((err) => {
-          console.error("QR generation error", err);
+      import('qrcode').then((QRCodeModule) => {
+        const QRCode = QRCodeModule.default || QRCodeModule;
+        return QRCode.toString(currentUrl, {
+          type: 'svg',
+          margin: 1.5,
+          color: {
+            dark: '#000000',
+            light: '#ffffff'
+          }
         });
+      }).then((svgString) => {
+        if (isMounted) setQrSvg(svgString);
+      }).catch((err) => {
+        console.error("QR generation error", err);
+      });
     }
+    return () => {
+      isMounted = false;
+    };
   }, [isOpen, currentUrl]);
 
   if (!isOpen) return null;
@@ -46,21 +50,26 @@ export const QrModal: React.FC<QrModalProps> = ({ isOpen, onClose, config, onToa
     });
   };
 
-  const handleDownloadQr = () => {
-    QRCode.toDataURL(currentUrl, {
-      width: 600,
-      margin: 2,
-      color: {
-        dark: '#000000',
-        light: '#ffffff'
-      }
-    }).then((dataUrl) => {
+  const handleDownloadQr = async () => {
+    try {
+      const QRCodeModule = await import('qrcode');
+      const QRCode = QRCodeModule.default || QRCodeModule;
+      const dataUrl = await QRCode.toDataURL(currentUrl, {
+        width: 600,
+        margin: 2,
+        color: {
+          dark: '#000000',
+          light: '#ffffff'
+        }
+      });
       const a = document.createElement('a');
       a.href = dataUrl;
       a.download = `${config.fullName.replace(/\s+/g, '_')}_QR.png`;
       a.click();
       onToast("QR code downloaded as high-res PNG");
-    });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

@@ -10,11 +10,25 @@
     <meta property="og:type" content="profile" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0c0a09" />
+
+    <!-- Preload key visual assets for instant display -->
+    <link rel="preload" as="image" href="/assets/aistudio/image_6bd22d23.png" fetchpriority="high" />
+
+    <!-- Non-blocking asynchronous font loading (0ms initial render delay) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <!-- Decoupled Configuration: allows 60-second updates without touching code -->
-    <script src="/card.config.js"></script>
+    <link 
+      rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" 
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" />
+    </noscript>
+
+    <!-- Decoupled Configuration: non-blocking deferred load -->
+    <script defer src="/card.config.js"></script>
   </head>
   <body class="bg-[#050507] text-slate-100 antialiased selection:bg-amber-500/30 selection:text-amber-200 min-h-screen">
     <div id="root"></div>

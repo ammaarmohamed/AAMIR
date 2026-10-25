@@ -11,6 +11,10 @@ export function generateVCardString(config: CardConfig): string {
     `TEL;TYPE=CELL,VOICE,PREF:${config.contacts.phoneRaw}`,
     `EMAIL;TYPE=INTERNET,PREF:${config.contacts.email}`,
     `URL:${config.contacts.website}`,
+    "X-SOCIALPROFILE;type=instagram:https://instagram.com/aamirdigital229",
+    "X-SOCIALPROFILE;type=tiktok:https://tiktok.com/@aamirdigital229",
+    "X-SOCIALPROFILE;type=facebook:https://facebook.com/aamirdigital229",
+    "X-SOCIALPROFILE;type=linkedin:https://linkedin.com/in/aamirdigital229",
     "END:VCARD"
   ];
 

@@ -31,7 +31,7 @@ window.CARD_CONFIG = {
     tiktokUrl: "https://tiktok.com/@aamirdigital229",
   },
 
-  // Direct Social Networks Grid (Only Instagram, TikTok, and Official Website)
+  // Direct Social Networks Grid
   socials: [
     {
       id: "instagram",
@@ -45,6 +45,20 @@ window.CARD_CONFIG = {
       name: "TikTok",
       handle: "@aamirdigital229",
       url: "https://tiktok.com/@aamirdigital229",
+      featured: true
+    },
+    {
+      id: "facebook",
+      name: "Facebook",
+      handle: "aamirdigital229",
+      url: "https://facebook.com/aamirdigital229",
+      featured: true
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      handle: "aamirdigital229",
+      url: "https://linkedin.com/in/aamirdigital229",
       featured: true
     },
     {

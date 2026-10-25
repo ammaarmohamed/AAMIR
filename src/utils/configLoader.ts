@@ -83,6 +83,20 @@ export const DEFAULT_CONFIG: CardConfig = {
       featured: true
     },
     {
+      id: "facebook",
+      name: "Facebook",
+      handle: "aamirdigital229",
+      url: "https://facebook.com/aamirdigital229",
+      featured: true
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      handle: "aamirdigital229",
+      url: "https://linkedin.com/in/aamirdigital229",
+      featured: true
+    },
+    {
       id: "website",
       name: "Portfolio Website",
       handle: "aamirdigital.netlify.app",

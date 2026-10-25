@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Globe, ArrowUpRight } from 'lucide-react';
+import { Instagram, Globe, ArrowUpRight, Facebook, Linkedin } from 'lucide-react';
 import { SocialItem } from '../types';
 
 interface SocialGridProps {
@@ -24,6 +24,10 @@ const getSocialIcon = (id: string) => {
       return Instagram;
     case 'tiktok':
       return TikTokIcon;
+    case 'facebook':
+      return Facebook;
+    case 'linkedin':
+      return Linkedin;
     case 'website':
       return Globe;
     default:

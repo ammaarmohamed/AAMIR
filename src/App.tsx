@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Share2, Sparkles } from 'lucide-react';
 import { getCardConfig } from './utils/configLoader';
 import { CardConfig, ThemeType } from './types';
@@ -6,9 +6,10 @@ import { ProfileHeader } from './components/ProfileHeader';
 import { ActionDock } from './components/ActionDock';
 import { PrimaryCTA } from './components/PrimaryCTA';
 import { SocialGrid } from './components/SocialGrid';
-import { QrModal } from './components/QrModal';
-import { EmailModal } from './components/EmailModal';
 import { Toast } from './components/Toast';
+
+const QrModal = lazy(() => import('./components/QrModal').then(m => ({ default: m.QrModal })));
+const EmailModal = lazy(() => import('./components/EmailModal').then(m => ({ default: m.EmailModal })));
 
 export default function App() {
   const [config, setConfig] = useState<CardConfig>(() => getCardConfig());
@@ -83,9 +84,9 @@ export default function App() {
       {/* Background Ambient Radial Glow */}
       <div 
         aria-hidden="true"
-        className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full blur-[140px] opacity-25 pointer-events-none transition-colors duration-700"
+        className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl opacity-20 pointer-events-none transform-gpu"
         style={{
-          background: 'radial-gradient(circle, var(--theme-accent) 0%, transparent 70%)'
+          background: 'radial-gradient(circle, var(--theme-accent) 0%, transparent 65%)'
         }}
       />
 
@@ -169,21 +170,29 @@ export default function App() {
         </div>
       </main>
 
-      {/* Dynamic QR Code Modal */}
-      <QrModal 
-        isOpen={isQrOpen}
-        onClose={() => setIsQrOpen(false)}
-        config={config}
-        onToast={showToast}
-      />
+      {/* Dynamic QR Code Modal (Lazy loaded on demand) */}
+      {isQrOpen && (
+        <Suspense fallback={null}>
+          <QrModal 
+            isOpen={isQrOpen}
+            onClose={() => setIsQrOpen(false)}
+            config={config}
+            onToast={showToast}
+          />
+        </Suspense>
+      )}
 
-      {/* Direct Email Launcher Modal */}
-      <EmailModal 
-        isOpen={isEmailOpen}
-        onClose={() => setIsEmailOpen(false)}
-        config={config}
-        onToast={showToast}
-      />
+      {/* Direct Email Launcher Modal (Lazy loaded on demand) */}
+      {isEmailOpen && (
+        <Suspense fallback={null}>
+          <EmailModal 
+            isOpen={isEmailOpen}
+            onClose={() => setIsEmailOpen(false)}
+            config={config}
+            onToast={showToast}
+          />
+        </Suspense>
+      )}
 
       {/* Micro Action Feedback Toast */}
       <Toast 
