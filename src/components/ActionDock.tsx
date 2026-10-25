@@ -1,14 +1,13 @@
 import React from 'react';
-import { Phone, Mail, QrCode, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MessageCircle } from 'lucide-react';
 import { CardConfig } from '../types';
 
 interface ActionDockProps {
   config: CardConfig;
   onOpenEmail: () => void;
-  onOpenQr: () => void;
 }
 
-export const ActionDock: React.FC<ActionDockProps> = ({ config, onOpenEmail, onOpenQr }) => {
+export const ActionDock: React.FC<ActionDockProps> = ({ config, onOpenEmail }) => {
   const actions = [
     {
       id: 'whatsapp',
@@ -32,25 +31,18 @@ export const ActionDock: React.FC<ActionDockProps> = ({ config, onOpenEmail, onO
       icon: Mail,
       onClick: onOpenEmail,
       ariaLabel: 'Open Email Options'
-    },
-    {
-      id: 'qr',
-      label: 'QR Code',
-      icon: QrCode,
-      onClick: onOpenQr,
-      ariaLabel: 'View Digital Card QR Code'
     }
   ];
 
   return (
     <div className="w-full px-4 mb-4">
-      <div className="grid grid-cols-4 gap-2.5 p-2 rounded-2xl glass-card">
+      <div className="grid grid-cols-3 gap-2.5 p-2 rounded-2xl glass-card">
         {actions.map((act) => {
           const Icon = act.icon;
           const content = (
             <>
               <div 
-                className="w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-200"
+                className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-200"
                 style={{
                   background: 'rgba(255, 255, 255, 0.05)',
                   border: '1px solid rgba(255, 255, 255, 0.08)'
@@ -75,7 +67,7 @@ export const ActionDock: React.FC<ActionDockProps> = ({ config, onOpenEmail, onO
                 target={act.target}
                 rel={act.rel}
                 aria-label={act.ariaLabel}
-                className="group tactile-btn min-h-[48px] flex flex-col items-center justify-center gap-1.5 p-1 rounded-xl transition-all duration-200 hover:bg-white/[0.04]"
+                className="group tactile-btn min-h-[50px] flex flex-col items-center justify-center gap-1.5 p-1.5 rounded-xl transition-all duration-200 hover:bg-white/[0.04]"
               >
                 {content}
               </a>
@@ -88,7 +80,7 @@ export const ActionDock: React.FC<ActionDockProps> = ({ config, onOpenEmail, onO
               type="button"
               onClick={act.onClick}
               aria-label={act.ariaLabel}
-              className="group tactile-btn min-h-[48px] flex flex-col items-center justify-center gap-1.5 p-1 rounded-xl transition-all duration-200 hover:bg-white/[0.04] cursor-pointer"
+              className="group tactile-btn min-h-[50px] flex flex-col items-center justify-center gap-1.5 p-1.5 rounded-xl transition-all duration-200 hover:bg-white/[0.04] cursor-pointer"
             >
               {content}
             </button>

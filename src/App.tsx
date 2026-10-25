@@ -8,7 +8,6 @@ import { PrimaryCTA } from './components/PrimaryCTA';
 import { SocialGrid } from './components/SocialGrid';
 import { Toast } from './components/Toast';
 
-const QrModal = lazy(() => import('./components/QrModal').then(m => ({ default: m.QrModal })));
 const EmailModal = lazy(() => import('./components/EmailModal').then(m => ({ default: m.EmailModal })));
 
 export default function App() {
@@ -23,7 +22,6 @@ export default function App() {
     return config.defaultTheme || 'amber';
   });
 
-  const [isQrOpen, setIsQrOpen] = useState(false);
   const [isEmailOpen, setIsEmailOpen] = useState(false);
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({
     message: '',
@@ -133,11 +131,10 @@ export default function App() {
           {/* Profile Header (Avatar, Rim Lighting, Crest, Name, Bio) */}
           <ProfileHeader config={config} />
 
-          {/* Thumb-Zone 4-Icon Action Dock (WhatsApp, Phone, Email, QR) */}
+          {/* Thumb-Zone Action Dock (WhatsApp, Phone, Email) */}
           <ActionDock 
             config={config} 
             onOpenEmail={() => setIsEmailOpen(true)}
-            onOpenQr={() => setIsQrOpen(true)}
           />
 
           {/* Primary CTA Button ("Save Contact" RFC vCard Exporter) */}
@@ -170,17 +167,7 @@ export default function App() {
         </div>
       </main>
 
-      {/* Dynamic QR Code Modal (Lazy loaded on demand) */}
-      {isQrOpen && (
-        <Suspense fallback={null}>
-          <QrModal 
-            isOpen={isQrOpen}
-            onClose={() => setIsQrOpen(false)}
-            config={config}
-            onToast={showToast}
-          />
-        </Suspense>
-      )}
+
 
       {/* Direct Email Launcher Modal (Lazy loaded on demand) */}
       {isEmailOpen && (

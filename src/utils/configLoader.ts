@@ -9,7 +9,7 @@ export const DEFAULT_CONFIG: CardConfig = {
   bio: "Scaling high-growth consumer & personal brands through culture-first social storytelling, viral short-form systems, and community conversion.",
   avatarUrl: "",
   avatarInitials: "AMH",
-  logoUrl: "/assets/aistudio/image_6bd22d23.png",
+  logoUrl: "/assets/aistudio/logo.webp",
   verified: true,
   statusText: "Open for New Brand Partnerships & Advisory",
   contacts: {

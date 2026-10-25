@@ -14,7 +14,7 @@ window.CARD_CONFIG = {
   bio: "Scaling high-growth consumer & personal brands through culture-first social storytelling, viral short-form systems, and community conversion.",
   avatarUrl: "", // Optional custom photo URL; sleek logo/avatar will render
   avatarInitials: "AMH",
-  logoUrl: "/assets/aistudio/image_6bd22d23.png",
+  logoUrl: "/assets/aistudio/logo.webp",
   verified: true,
   statusText: "Open for New Brand Partnerships & Advisory",
 
