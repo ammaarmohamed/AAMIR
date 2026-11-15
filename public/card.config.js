@@ -1,59 +1,66 @@
 /**
- * AAMIR DIGITAL — CARD CONFIGURATION
- * Update any field below in under 60 seconds without modifying application code.
+ * AAMIR DIGITAL — DECOUPLED NFC CARD CONFIGURATION
+ * Edit any value below to update the card without modifying application code.
  */
 window.CARD_CONFIG = {
   fullName: "Aamir Mohamed Hussein",
   firstName: "Aamir",
   middleName: "Mohamed",
   lastName: "Hussein",
+  initials: "AMH",
   title: "Social Media Manager",
-  organization: "Aamir Digital",
-  location: "Nairobi, Kenya",
-  bio: "Helping brands grow through high-retention short-form content, viral strategy, and digital campaigns.",
-  logoUrl: "/assets/aistudio/logo.webp",
-  fallbackLogoUrl: "/assets/aistudio/image_6bd22d23.png",
+  company: "Aamir Digital",
+  secondaryAffiliation: "Founder, Aamir Digital Studio (AD)",
+  organizationName: "Aamir Digital",
+  organizationAcronym: "AD",
+  hookStatement:
+    "Scaling brands through high-retention short-form video, viral strategy, and measurable digital campaigns.",
+  focusChips: ["Short-Form Video", "Brand Growth", "Paid Social"],
+  photoWebp: "/assets/aistudio/logo.webp",
+  photoJpg: "/assets/aistudio/image_6bd22d23.png",
+  emblemUrl: "/assets/aistudio/logo.webp",
   verified: true,
-
+  defaultTheme: "emerald",
   contacts: {
-    phoneDisplay: "0711 494 938",
-    phoneRaw: "+254711494938",
+    whatsapp: "+254711494938",
+    phone: "+254711494938",
+    phoneDisplay: "+254 711 494 938",
     email: "aamirdigital229@gmail.com",
-    website: "https://aamirdigital.netlify.app/",
-    whatsAppUrl:
-      "https://wa.me/254711494938?text=Hi%20Aamir%2C%20I%20found%20your%20digital%20card%20and%20would%20like%20to%20connect."
+    website: "https://aamirdigital.netlify.app/"
   },
-
-  socials: [
+  featuredLinks: [
+    {
+      id: "website",
+      title: "Aamir Digital Portfolio",
+      subtitle: "aamirdigital.netlify.app",
+      url: "https://aamirdigital.netlify.app/",
+      useLogo: true
+    },
     {
       id: "instagram",
-      name: "Instagram",
-      handle: "@aamirdigital229",
+      title: "Instagram",
+      subtitle: "@aamirdigital229",
       url: "https://instagram.com/aamirdigital229"
     },
     {
       id: "tiktok",
-      name: "TikTok",
-      handle: "@aamirdigital229",
+      title: "TikTok",
+      subtitle: "@aamirdigital229",
       url: "https://tiktok.com/@aamirdigital229"
     },
     {
       id: "facebook",
-      name: "Facebook",
-      handle: "aamirdigital229",
+      title: "Facebook",
+      subtitle: "aamirdigital229",
       url: "https://facebook.com/aamirdigital229"
     },
     {
       id: "linkedin",
-      name: "LinkedIn",
-      handle: "aamirdigital229",
+      title: "LinkedIn",
+      subtitle: "aamirdigital229",
       url: "https://linkedin.com/in/aamirdigital229"
-    },
-    {
-      id: "website",
-      name: "Portfolio Website",
-      handle: "aamirdigital.netlify.app",
-      url: "https://aamirdigital.netlify.app/"
     }
-  ]
+  ],
+  vCardNote:
+    "Social Media Manager at Aamir Digital. High-retention short-form content, viral strategy, and digital campaigns."
 };

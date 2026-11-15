@@ -1,20 +1,104 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="emerald">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Aamir Mohamed Hussein | Aamir Digital</title>
-    <meta name="description" content="Aamir Mohamed Hussein — Social Media Manager at Aamir Digital. Connect via WhatsApp, phone, email, or social channels." />
+    <meta name="description" content="Social Media Manager at Aamir Digital. Tap to connect via WhatsApp, call, email, or save contact directly." />
     <meta property="og:title" content="Aamir Mohamed Hussein | Aamir Digital" />
-    <meta property="og:description" content="Social Media Manager at Aamir Digital. Connect directly via WhatsApp, phone, email, or social channels." />
+    <meta property="og:description" content="Social Media Manager at Aamir Digital. Tap to connect via WhatsApp, call, email, or save contact directly." />
     <meta property="og:type" content="profile" />
     <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#06130e" />
+
     <link rel="preload" as="image" href="/assets/aistudio/logo.webp" type="image/webp" fetchpriority="high" />
-  </head>
-  <body class="bg-[#09090b] text-zinc-100 antialiased selection:bg-amber-500/30 selection:text-amber-100">
-    <div id="root"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" />
+    </noscript>
+
+    <script>
+      window.DEFAULT_CARD_CONFIG = {
+        fullName: "Aamir Mohamed Hussein",
+        firstName: "Aamir",
+        middleName: "Mohamed",
+        lastName: "Hussein",
+        initials: "AMH",
+        title: "Social Media Manager",
+        company: "Aamir Digital",
+        secondaryAffiliation: "Founder, Aamir Digital Studio (AD)",
+        organizationName: "Aamir Digital",
+        organizationAcronym: "AD",
+        hookStatement:
+          "Scaling brands through high-retention short-form video, viral strategy, and measurable digital campaigns.",
+        focusChips: ["Short-Form Video", "Brand Growth", "Paid Social"],
+        photoWebp: "/assets/aistudio/logo.webp",
+        photoJpg: "/assets/aistudio/image_6bd22d23.png",
+        emblemUrl: "/assets/aistudio/logo.webp",
+        verified: true,
+        defaultTheme: "emerald",
+        contacts: {
+          whatsapp: "+254711494938",
+          phone: "+254711494938",
+          phoneDisplay: "+254 711 494 938",
+          email: "aamirdigital229@gmail.com",
+          website: "https://aamirdigital.netlify.app/"
+        },
+        featuredLinks: [
+          {
+            id: "website",
+            title: "Aamir Digital Portfolio",
+            subtitle: "aamirdigital.netlify.app",
+            url: "https://aamirdigital.netlify.app/",
+            useLogo: true
+          },
+          {
+            id: "instagram",
+            title: "Instagram",
+            subtitle: "@aamirdigital229",
+            url: "https://instagram.com/aamirdigital229"
+          },
+          {
+            id: "tiktok",
+            title: "TikTok",
+            subtitle: "@aamirdigital229",
+            url: "https://tiktok.com/@aamirdigital229"
+          },
+          {
+            id: "facebook",
+            title: "Facebook",
+            subtitle: "aamirdigital229",
+            url: "https://facebook.com/aamirdigital229"
+          },
+          {
+            id: "linkedin",
+            title: "LinkedIn",
+            subtitle: "aamirdigital229",
+            url: "https://linkedin.com/in/aamirdigital229"
+          }
+        ],
+        vCardNote:
+          "Social Media Manager at Aamir Digital. High-retention short-form content, viral strategy, and digital campaigns."
+      };
+    </script>
     <script src="/card.config.js"></script>
+  </head>
+  <body class="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
   </body>
 </html>
