@@ -11,14 +11,6 @@ export default defineConfig(() => {
         '@': path.resolve(import.meta.dirname, '.'),
       },
     },
-    optimizeDeps: {
-      include: ['react', 'react-dom', 'lucide-react'],
-    },
-    build: {
-      target: 'esnext',
-      cssMinify: true,
-      minify: true,
-    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
